@@ -1,0 +1,55 @@
+1) Object: Write a program to turn on LED. Also provide blinking of LED by interfacing between raspberry pi and LED.
+
+import time
+
+import RPi.GPIO as GPIO              ## Import GPIO library
+
+GPIO.setmode(GPIO.BOARD)      ## Use board pin numbering
+
+GPIO.setup(11, GPIO.OUT)          ## Setup GPIO Pin 11 to OUT
+
+while True:
+
+	GPIO.output(11,True)               ## Turn on Led
+
+	time.sleep(1)                              ## Wait for one second
+
+	GPIO.output(11,False)            ## Turn off Led
+
+	time.sleep(1)                            ## Wait for one second
+
+ 
+
+ 
+
+ 
+
+2) Object: Write a program to control the operation of LED with switch. Show the interfacing between LED, switch and raspberry pi.
+
+ 
+
+import time
+
+import RPi.GPIO as io            #Import GPIO library
+
+io.setmode(io.BOARD)          #Set Board
+
+io.setup(7,io.OUT)                 #Select Pin for Output
+
+io.setup(5,io.IN)                    #Select Pin for Input through Switch
+
+ 
+
+while 1:
+
+	if(io.input(5)==0):
+
+		print('light is on')
+
+		io.output(7,1)
+
+	else:
+
+		print("light is off")
+
+		io.output(7,0)

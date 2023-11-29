@@ -1,0 +1,23 @@
+└─$ nmap -p161 --script=snmp-interfaces 192.168.39.220      #identify vulnerability
+
+└─$ sudo nmap -p 445 --script = smb -Vuln * 192.168.39.220 
+
+└─$ nmap -T2 8.8.8.8         #timing
+
+└─$ nmap -T3 192.168.39.220         # timing
+
+└─$ sudo nmap -v -Pn -sI 8.8.8.8 :80 192.168.39.220   # excuting an idal scan
+
+└─$ sudo nmap -sS -A -O 192.168.39.220 -p 445               #syn stealth scan
+
+└─$ sudo nmap -sI 192.168.39.220     
+
+└─$ sudo nmap -sL 192.168.39.220   #idel scan
+
+└─$ sudo nmap -sU 192.168.39.220     # udp scan
+
+└─$ nmap -sP 192.168.39.220    # find live machine
+
+└─$ nmap -sT 192.168.39.220    #tcp scan
+
+└─$ nmap -sP 192.168.39.220    # open port

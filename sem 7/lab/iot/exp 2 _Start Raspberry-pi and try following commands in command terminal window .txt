@@ -1,0 +1,72 @@
+Ls - List the content of the current directory
+
+ 
+
+Cd - Change current directory
+
+ 
+
+Pwd - present working directory
+
+ 
+
+Mkdir - make new directory 
+
+ 
+
+Rmdir - remove empty directory
+
+ 
+
+Touch - Changes its last time stamp or create a new if it’s not available already
+
+ 
+
+Rm - removes the specified file 
+
+ 
+
+Cat - to list the content of the file
+
+
+ 
+
+Mv - to move a file from one place to another
+
+ 
+
+Man - to list the manual of a command
+
+ 
+
+Ifconfig - to check the IP configuration
+
+ 
+
+Ping - Ping any IP address to get the response from a system
+
+Sudo - Super user do
+
+ 
+
+Wget - to download some files from internet
+
+ 
+
+Apt or apt get - to download modules in Rpi
+
+ 
+
+More - to view the content of the file and navigate through file
+
+ 
+
+Less - to view the content of the file page by page
+
+ 
+
+Nano - to edit any program file or create new
+
+ 
+
+Pip - to install python library packages

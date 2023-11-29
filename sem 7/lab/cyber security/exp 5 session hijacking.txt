@@ -1,0 +1,76 @@
+# Session Hijacking
+
+experiment-os
+
+# What is session Hijacking?
+
+Nso known as cookie hijacking. it is used to gain unauthorized access to information or
+
+service in a computer. fowy methods used to perpetrale a session hijack:
+
+Session fixation
+
+- Session Sidejacking
+
+Cross-site suriphry
+
+Malware
+
+# Hijacking facebook account -
+
+Yes, it is possible to hijack facebook account from session
+
+login from one computer.. press F12 Key
+
+Go for application → cookies
+
+look for C-user and Xs
+
+copy the value for c-user and Xs send this info on another compuler
+
+open any web browser with UtL:Nww.facebook.com
+
+Now again press F12. → wokies
+
+Go for for application Add c-user and copy its value
+
+Add Xs and copy ill value.
+
+
+
+# Facebook Account cookies:-
+
+C-users: Contains User ID of current user.
+
+Xs.: up to two different Higit number representing the session number. Second portion of the value is a session.
+
+secret: Third optiomal portion used as secure Flag (Secure browsing feature) 15
+
+Keep me logged in (if (hecked) is used to set wokies for 20 days. Otherwise the cookie is a session cookie.
+
+
+# Hijacking Amazon Account:-
+
+Yes, it is possible to hijack Amazon Account from session!
+
+Go. to amazon.com
+
+login from one computer
+
+press fle key
+
+Go for application cookies.
+
+look for
+
+copy the value for x-acbin and at-acbin send this info on another computer.
+
+open any web browser with URL : www.Amazon.com
+
+Now again press fl2.
+
+cno for application cookies
+
+Add x-acbian and it wpy its value. Add at at-acbin and copy its value.
+
+Kali Linux tools (Information Gathering)

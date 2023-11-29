@@ -1,0 +1,56 @@
+def encrypt_rail_fence(plaintext, rails):
+    # Create a matrix to represent the rail fence pattern
+    matrix = [[' ' for _ in range(len(plaintext))] for _ in range(rails)]
+
+    # Populate the matrix with the characters of the plaintext
+    row, direction = 0, 1
+    for char in plaintext:
+        matrix[row][0] = '*'
+        matrix[row][matrix[row].index('*')] = char
+        row += direction
+
+        # Change direction when reaching the top or bottom rail
+        if row == 0 or row == rails - 1:
+            direction *= -1
+
+    # Read off the matrix in rows to get the ciphertext
+    ciphertext = ''.join(char for row in matrix for char in row if char != '*')
+    return ciphertext
+
+def decrypt_rail_fence(ciphertext, rails):
+    # Create a matrix to represent the rail fence pattern
+    matrix = [[' ' for _ in range(len(ciphertext))] for _ in range(rails)]
+
+    # Populate the matrix with '*' to represent the rail fence pattern
+    row, direction = 0, 1
+    for i in range(len(ciphertext)):
+        matrix[row][0] = '*'
+        row += direction
+
+        # Change direction when reaching the top or bottom rail
+        if row == 0 or row == rails - 1:
+            direction *= -1
+
+    # Populate the matrix with the characters of the ciphertext
+    index = 0
+    for i in range(rails):
+        for j in range(len(ciphertext)):
+            if matrix[i][j] == '*':
+                matrix[i][j] = ciphertext[index]
+                index += 1
+
+    # Read off the matrix in zigzag pattern to get the plaintext
+    plaintext = ''.join(matrix[i][j] for j in range(len(ciphertext)) for i in range(rails) if matrix[i][j] != '*')
+    return plaintext
+
+# Example usage
+plaintext = "Hello, World!"
+rails = 3
+
+# Encryption
+encrypted_text = encrypt_rail_fence(plaintext, rails)
+print(f"Encrypted Text: {encrypted_text}")
+
+# Decryption
+decrypted_text = decrypt_rail_fence(encrypted_text, rails)
+print(f"Decrypted Text: {decrypted_text}")

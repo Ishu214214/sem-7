@@ -1,0 +1,60 @@
+def prepare_text(text):
+    # Convert the text to uppercase and remove non-alphabetic characters
+    text = ''.join(char.upper() for char in text if char.isalpha())
+    return text
+
+def generate_key_matrix(key):
+    # Create a 5x5 matrix for the key
+    key_matrix = [['' for _ in range(5)] for _ in range(5)]
+    key = prepare_text(key + 'ABCDEFGHIKLMNOPQRSTUVWXYZ')
+
+    # Fill the matrix with the key (ignoring duplicate letters)
+    flat_key = ''.join(sorted(set(key), key=key.index))
+    for i in range(5):
+        for j in range(5):
+            key_matrix[i][j] = flat_key[i * 5 + j]
+
+    return key_matrix
+
+def find_positions(matrix, char):
+    # Find the row and column indices of a character in the matrix
+    for i in range(5):
+        for j in range(5):
+            if matrix[i][j] == char:
+                return i, j
+
+def encrypt_playfair(plaintext, key):
+    plaintext = prepare_text(plaintext)
+    key_matrix = generate_key_matrix(key)
+    ciphertext = ''
+
+    for i in range(0, len(plaintext), 2):
+        # If two consecutive letters are the same, insert an 'X' between them
+        if i + 1 < len(plaintext) and plaintext[i] == plaintext[i + 1]:
+            plaintext = plaintext[:i + 1] + 'X' + plaintext[i + 1:]
+
+        # Find positions of two letters in the key matrix
+        row1, col1 = find_positions(key_matrix, plaintext[i])
+        row2, col2 = find_positions(key_matrix, plaintext[i + 1])
+
+        # Encrypt the pair of letters
+        if row1 == row2:
+            # Same row, shift to the right
+            ciphertext += key_matrix[row1][(col1 + 1) % 5] + key_matrix[row2][(col2 + 1) % 5]
+        elif col1 == col2:
+            # Same column, shift down
+            ciphertext += key_matrix[(row1 + 1) % 5][col1] + key_matrix[(row2 + 1) % 5][col2]
+        else:
+            # Form a rectangle, swap columns
+            ciphertext += key_matrix[row1][col2] + key_matrix[row2][col1]
+
+    return ciphertext
+
+# Example usage
+plaintext = "HELLO"
+key = "KEYWORD"
+
+# Encryption
+encrypted_text = encrypt_playfair(plaintext, key)
+print(f"Encrypted Text: {encrypted_text}")
+

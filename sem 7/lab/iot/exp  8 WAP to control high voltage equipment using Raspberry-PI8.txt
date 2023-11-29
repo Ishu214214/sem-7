@@ -1,0 +1,15 @@
+// WAP to control high voltage equipment using Raspberry-PI (Small home automation Project).
+
+Prerequisite Exercise:
+
+How To Connect Raspberry Pi 4 To Relay
+
+Understand the interfacing of the 5v, 12v, 24v relay module with the Raspberry Pi GPIO and the code for the same.
+
+#########
+
+Interfacing Diagram Of The Relay Module With The Raspberry Pi GPIO
+
+As you know that Raspberry Pi only generates 3.3v on GPIO pins, this means that you may not be able to power a 5v relay module using Raspberry Pi. The solution on this issue is the use of level converters, these level converters are nothing but MOSFETs that convert low-level signals 3.3V to 5V signals.
+
+The following image shows interfacing of the relay module with the raspberry pi.

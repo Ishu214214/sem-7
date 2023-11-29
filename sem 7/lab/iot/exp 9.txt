@@ -1,0 +1,38 @@
+Objective: - LED Touch screen & Pi Camera interfacing & Configuration with raspberry pi.
+
+Digital Camera Configuration
+
+Topic:
+
+• Setup - Raspberry Pi camera, picamera library, Python3, IDE
+
+• Take a picture with Python and picamera
+
+Basic code with picamera module
+
+• Customize the pictures you take with picamera
+
+Make the name of the picture unique
+
+Record a video with Python and picamera
+
+
+Install the picamera module from pip3.
+
+$ sudo apt install python3-pip
+
+$ pip3 install picamera
+
+Take a picture with Python and picamera
+
+from picamera import PiCamera
+
+import time
+
+camera = PiCamera()
+
+time.sleep(2)
+
+camera.capture("/home/pi/Pictures/img.jpg")
+
+print("Done.")

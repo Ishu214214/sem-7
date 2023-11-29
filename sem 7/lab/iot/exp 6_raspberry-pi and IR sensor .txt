@@ -1,0 +1,65 @@
+(b) Write a progrm to find distance using ultrasonic sensor with raspberry-pi
+
+
+
+GPIO.output(PIN_TRIGGER, GPIO.LOW)
+
+while GPIO.input(PIN_ECHO)==0:
+
+      pulse_start_time = time.time()
+
+while GPIO.input(PIN_ECHO)==1:
+
+      pulse_end_time = time.time()
+
+ 
+
+pulse_duration = pulse_end_time - pulse_start_time
+
+distance = round(pulse_duration * 17150, 2)
+
+print "Distance:",distance,"cm"
+
+finally:
+
+GPIO.cleanup()
+
+ 
+##################################################################
+ 
+
+
+
+// IR sensor
+
+
+(a) Write a python program to provide interfacing between raspberry-pi and IR sensor.
+
+
+import RPi.GPIO as GPIO
+ 	import time
+ 	 
+ 	sensor = 16
+ 	buzzer = 18
+ 	 
+ 	GPIO.setmode(GPIO.BOARD)
+ 	GPIO.setup(sensor,GPIO.IN)
+ 	GPIO.setup(buzzer,GPIO.OUT)
+ 	 
+ 	GPIO.output(buzzer,False)
+ 	print "IR Sensor Ready....."
+ 	print " "
+ 	 
+ 	try:
+ 	while True:
+ 	if GPIO.input(sensor):
+ 	GPIO.output(buzzer,True)
+ 	print "Object Detected"
+ 	while GPIO.input(sensor):
+ 	time.sleep(0.2)
+ 	else:
+ 	GPIO.output(buzzer,False)
+ 	 
+ 	 
+ 	except KeyboardInterrupt:
+ 	GPIO.cleanup()
